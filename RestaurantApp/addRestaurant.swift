@@ -16,7 +16,7 @@ struct addRestaurant: View {
     @State var image = ""
     @State var latitude = 0.0
     @State var longitude = 0.0
-    @State var reviews = ""
+    @State var reviews  = ""
     
     var body: some View {
         
@@ -43,6 +43,7 @@ struct addRestaurant: View {
             TextField("", text: $reviews)
         }
         Button(action: {
+            dbConnection.addRestaurant(restaurant: Restaurant(id: "3", title: title, openingHours: openingHours, image: image, description: description, latitude: latitude, longitude: longitude, reviews: [Review(id: "", name: "", message: "")]))
         }, label: {
             Text("Add Restaurant").padding().background(.black).foregroundColor(.white).cornerRadius(9)
         })

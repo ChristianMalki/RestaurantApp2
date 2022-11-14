@@ -17,6 +17,9 @@ struct RestaurantsListView: View {
         ZStack {
             ScrollView {
                 Text("Restaurants").bold().font(.title)
+                NavigationLink("Add Restaurant", destination: addRestaurant())
+                    .background(.gray)
+
                 
                 Spacer()
                 
