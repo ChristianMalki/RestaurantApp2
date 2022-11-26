@@ -14,8 +14,8 @@ struct addRestaurant: View {
     @State var description = ""
     @State var openingHours = ""
     @State var image = ""
-    @State var latitude = 0.0
-    @State var longitude = 0.0
+    @State var latitudeText = ""
+    @State var longitudeText = ""
     @State var reviews  = ""
     
     var body: some View {
@@ -42,11 +42,24 @@ struct addRestaurant: View {
             Text("Add reviews")
             TextField("", text: $reviews)
         }
+        VStack {
+            Text("Add latitude")
+            TextField("", text: $latitudeText)
+        }
+        VStack {
+            Text("Add longitude")
+            TextField("", text: $longitudeText)
+        }
         Button(action: {
+            
+            let longitude = Double(longitudeText) ?? 0.0
+            let latitude = Double(latitudeText) ?? 0.0
+            
             dbConnection.addRestaurant(restaurant: Restaurant(id: "3", title: title, openingHours: openingHours, image: image, description: description, latitude: latitude, longitude: longitude, reviews: [Review(id: "", name: "", message: "")]))
         }, label: {
             Text("Add Restaurant").padding().background(.black).foregroundColor(.white).cornerRadius(9)
         })
+     
     }
     
    

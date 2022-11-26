@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
     
     struct ContentView: View {
         
@@ -24,8 +23,8 @@ import SwiftUI
                     LoginView()
                 }
             }
-
-            
+       
+      
         }
     }
 

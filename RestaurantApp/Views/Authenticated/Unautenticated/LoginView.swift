@@ -36,10 +36,12 @@ struct LoginView: View {
             NavigationLink(destination: RegisterView(), label: {
                 Text("Register an account").foregroundColor(.black).bold()
             })
+           
+            
             
         }.padding().background(.red)
         
-        
+    
     }
 }
 

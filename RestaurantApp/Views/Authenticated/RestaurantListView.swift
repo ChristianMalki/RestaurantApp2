@@ -18,7 +18,7 @@ struct RestaurantsListView: View {
             ScrollView {
                 Text("Restaurants").bold().font(.title)
                 NavigationLink("Add Restaurant", destination: addRestaurant())
-                    .background(.gray)
+                    .background(.black).foregroundColor(.white).cornerRadius(9)
 
                 
                 Spacer()
@@ -34,13 +34,21 @@ struct RestaurantsListView: View {
                 //                dbConnection.SignOut()
                 //            }.buttonStyle(.borderedProminent)
             }.overlay(alignment: .bottom, content: {
+                VStack {
+                    Button("SignOut") {
+                    dbConnection.SignOut()
+                }.buttonStyle(.borderedProminent)
+                    
+                    Button(action: {
+                        viewOnMap.toggle()
+                    }, label: {
+                        Text("View on map").padding().background(.black).foregroundColor(.white).cornerRadius(9)
+                    })
+                    
+                }
+               
                 
-                
-                Button(action: {
-                    viewOnMap.toggle()
-                }, label: {
-                    Text("View on map").padding().background(.black).foregroundColor(.white).cornerRadius(9)
-                })
+               
                 
             })
             

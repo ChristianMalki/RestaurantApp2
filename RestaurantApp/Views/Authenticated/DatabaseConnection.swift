@@ -55,7 +55,8 @@ class DatabaseConnection: ObservableObject {
     
     func addRestaurant(restaurant: Restaurant) {
         do {
-            try db.collection(restaurantCollection).document("InXTiGih6fMlhqPGUJXc").updateData(["restaurant": FieldValue.arrayUnion([Firestore.Encoder().encode(restaurant)])])
+//            try db.collection(restaurantCollection).document("InXTiGih6fMlhqPGUJXc").updateData(["restaurant": FieldValue.arrayUnion([Firestore.Encoder().encode(restaurant)])])
+            try db.collection(restaurantCollection).document(restaurant.id).setData(from: restaurant)
         } catch {
             print("Error adding restarunt")
         }
